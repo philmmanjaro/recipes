@@ -97,6 +97,7 @@ setup       : |
 
     %install_file %(pkgdir)/config-x86_64 .config
     %make CC=%(cc) LD=%(ld) ARCH=x86_64 LLVM=1 LLVM_IAS=1 WERROR=0 oldconfig || exit 1
+    cat .config
 build       : |
     # Do NOT use CONFIG_DEBUG_SECTION_MISMATCH as it is GCC specific
     %make VERBOSE=0 V=0 CC=%(cc) LD=%(ld) ARCH=x86_64 LLVM=1 LLVM_IAS=1 WERROR=0
