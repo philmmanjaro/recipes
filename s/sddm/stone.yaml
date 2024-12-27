@@ -37,4 +37,10 @@ build       : |
     %cmake_build
 install     : |
     %cmake_install
+    %install_file %(pkgdir)/sddm.group %(installroot)%(libdir)/userdb/sddm.group
+    ln -s sddm.group %(installroot)%(libdir)/userdb/953.group
+    %install_file %(pkgdir)/sddm.user %(installroot)%(libdir)/userdb/sddm.user
+    ln -s sddm.user %(installroot)%(libdir)/userdb/953.user
+    mkdir -p %(installroot)%(vendordir)
+    mv -v %(installroot)/etc %(installroot)%(vendordir)
 
