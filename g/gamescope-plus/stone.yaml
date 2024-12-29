@@ -18,55 +18,45 @@ license     :
     - GPL-3.0-only
 networking: yes
 builddeps   :
+    - binary(cmake)
     - binary(git)
-    - pkgconfig(hwdata)
-    - pkgconfig(libpipewire-0.3)
-    - pkgconfig(vulkan)
-    - pkgconfig(wayland-client)
-    - pkgconfig(x11)
-    - pkgconfig(pixman-1)
+    - binary(glslangValidator)
     - cmake(VulkanHeaders)
-    - wayland-protocols-devel
     - libdrm-devel
-    - libxkbcommon-devel
-    - libxdamage-devel
     - libxcomposite-devel
     - libxcursor-devel
+    - libxdamage-devel
     - libxext-devel
-    - libxxf86vm-devel
-    - libxtst-devel
+    - libxkbcommon-devel
     - libxres-devel
-    - pkgconfig(libcap)
-    - pkgconfig(xmu)
-    - pkgconfig(lcms2)
-    - pkgconfig(libudev)
-    - pkgconfig(libseat)
-    - pkgconfig(libinput)
-    - pkgconfig(xwayland)
-    - pkgconfig(xcb-ewmh)
-    - pkgconfig(libdecor-0)
-    - binary(glslangValidator)
-    - pkgconfig(luajit)
-    # FROM WLROOTS
-    # TODO: xcb-errors
-    - binary(cmake)
-    - binary(glslangValidator)
-    - cmake(VulkanHeaders)
+    - libxtst-devel
+    - libxxf86vm-devel
     - pkgconfig(cairo)
     - pkgconfig(egl)
     - pkgconfig(gbm)
     - pkgconfig(glesv2)
     - pkgconfig(hwdata)
+    - pkgconfig(lcms2)
+    - pkgconfig(libcap)
+    - pkgconfig(libdecor-0)
     - pkgconfig(libdrm)
     - pkgconfig(libinput)
+    - pkgconfig(libpipewire-0.3)
     - pkgconfig(libseat)
     - pkgconfig(libudev)
+    - pkgconfig(luajit)
     - pkgconfig(pixman-1)
     - pkgconfig(vulkan)
+    - pkgconfig(wayland-client)
     - pkgconfig(wayland-protocols)
     - pkgconfig(wayland-server)
+    - pkgconfig(x11)
+    - pkgconfig(xcb-ewmh)
     - pkgconfig(xcb-renderutil)
     - pkgconfig(xkbcommon)
+    - pkgconfig(xmu)
+    - pkgconfig(xwayland)
+    - wayland-protocols-devel
 setup       : |
     cd %(workdir)
     git submodule update --init --recursive

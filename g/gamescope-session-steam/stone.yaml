@@ -20,3 +20,11 @@ rundeps     :
 install     : |
     %install_dir %(installroot)
     cp -rv %(workdir)/usr %(installroot)
+
+    # font workaround for initial big picture mode startup
+    mkdir -p %(installroot)/usr/share/fonts/truetype/ttf-dejavu
+    ln -s /usr/share/fonts/TTF/DejaVuSans.ttf %(installroot)/usr/share/fonts/truetype/ttf-dejavu/DejaVuSans.ttf
+
+    # We ship our own update file
+    rm %(installroot)/usr/bin/steamos-update
+

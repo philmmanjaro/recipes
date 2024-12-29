@@ -4,11 +4,11 @@
 # SPDX-License-Identifier: MPL-2.0
 #
 name        : opengamepadui
-version     : v0.35.0
+version     : v0.35.2
 release     : 1
 homepage    : https://github.com/ShadowBlip/OpenGamepadUI
 upstreams   :
-    - https://github.com/ShadowBlip/OpenGamepadUI/archive/refs/tags/v0.35.0.tar.gz : 8ed7306b6ff824b5510c0cebcbef6364164683eb254673d04779bf7d3c7e8b98
+    - https://github.com/ShadowBlip/OpenGamepadUI/archive/refs/tags/v0.35.2.tar.gz : 4a3cd0d64e617deea522853caa3b7f191e3abea3a2bdcc2bfd45f81d74cd5a37
 summary     : Open source gamepad-native game launcher and overlay
 description : |
     Open Gamepad UI is a free and open source game launcher and overlay written using the Godot Game Engine 4 designed with a gamepad native experience in mind.
@@ -25,6 +25,8 @@ builddeps:
   - soname(libfontconfig.so.1(x86_64))
 environment : |
   export PATH="/usr/bin:/usr/sbin"
+setup       : |
+    %patch %(pkgdir)/use-chimeraos-defaults.patch
 build: |
   %make
 install     : |

@@ -4,11 +4,11 @@
 # SPDX-License-Identifier: MPL-2.0
 #
 name: powerstation
-version: v0.4.0
+version: v0.4.1
 release: 1
 homepage: https://github.com/ShadowBlip/PowerStation
 upstreams:
-  - https://github.com/ShadowBlip/PowerStation/archive/refs/tags/v0.4.0.tar.gz: 86e2bf1c2499a8cf630f09884e0fede6fd15ff746c0b4f84480998364bd6cb0a
+  - https://github.com/ShadowBlip/PowerStation/archive/refs/tags/v0.4.1.tar.gz: e8d838bc26f8690fb2acb103b58b2edbbcb390f74e542d2825edafade2e3ace1
 summary: Open source TDP control and performance daemon with DBus interface
 license: GPL-3.0-or-later
 description: |
