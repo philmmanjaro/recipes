@@ -60,37 +60,9 @@ packages    :
         paths:
             - /usr/src
 setup       : |
-    %patch %(pkgdir)/0001-firmware_loader-add-earlyboot-trees-for-firmware-loa.patch
-    %patch %(pkgdir)/asus-patch-series.patch
-    %patch %(pkgdir)/more-ISA-levels-and-uarches-for-kernel-6.1.79+.patch
-
-    # Surface Pro support
-    %patch %(pkgdir)/surface/0001-secureboot.patch
-    %patch %(pkgdir)/surface/0002-surface3-oemb.patch
-    %patch %(pkgdir)/surface/0003-mwifiex.patch
-    %patch %(pkgdir)/surface/0004-ath10k.patch
-    %patch %(pkgdir)/surface/0005-ipts.patch
-    %patch %(pkgdir)/surface/0006-ithc.patch
-    %patch %(pkgdir)/surface/0007-surface-sam-over-hid.patch
-    %patch %(pkgdir)/surface/0008-surface-button.patch
-    %patch %(pkgdir)/surface/0009-surface-typecover.patch
-    %patch %(pkgdir)/surface/0010-surface-shutdown.patch
-    %patch %(pkgdir)/surface/0011-surface-gpe.patch
-    %patch %(pkgdir)/surface/0012-cameras.patch
-    %patch %(pkgdir)/surface/0013-amd-gpio.patch
-    %patch %(pkgdir)/surface/0014-rtc.patch
-
-    # nvidia -_-
-    %patch %(pkgdir)/0001-drivers-firmware-skip-simpledrm-if-nvidia-drm.modese.patch
-
-    # Handheld support
-    # ASUS ALLY X patches
-    %patch %(pkgdir)/0001-hda-tas2781-add-speaker-id-check-for-ASUS-projects.patch
-    # OrangePi Neo patches
-    %patch %(pkgdir)/0001-iio_imu_Add_driver_for_Bosch_BMI260_IMU.patch
-    # Steamdeck (OLED)
-    %patch %(pkgdir)/0001-steam-deck.patch
-    %patch %(pkgdir)/0002-steamdeck-oled-audio.patch
+    for i in $(cat %(pkgdir)/series) ; do
+        %patch %(pkgdir)/$i
+    done
 
     extraVersion="-%(release).handheld"
     sed -e "s/EXTRAVERSION =.*/EXTRAVERSION = $extraVersion/" -i Makefile
