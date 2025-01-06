@@ -5,7 +5,7 @@
 #
 name        : opengamepadui
 version     : 0.35.5
-release     : 1
+release     : 3
 homepage    : https://github.com/ShadowBlip/OpenGamepadUI
 upstreams   :
     - https://github.com/ShadowBlip/OpenGamepadUI/archive/refs/tags/v0.35.5.tar.gz : 19a5fa9979bf1a18dbd6b5c6dc2d4a52bcf2d99ef5a76522902e72584afda17e
@@ -27,6 +27,7 @@ environment : |
   export PATH="/usr/bin:/usr/sbin"
 setup       : |
     %patch %(pkgdir)/use-chimeraos-defaults.patch
+    %patch %(pkgdir)/fix-prefix.patch
 build: |
   %make
 install     : |
