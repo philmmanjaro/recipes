@@ -1,0 +1,65 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"login_ng": {
+			"build-depends": [
+				"binary(make)",
+				"clang-devel",
+				"pkgconfig(pam)"
+			],
+			"depends": [
+				"binary(greetd)",
+				"binary(seatd)",
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"linux-pam",
+				"soname(ld-linux-x86-64.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libm.so.6(x86_64))",
+				"soname(libpam.so.0(x86_64))",
+				"soname(libunwind.so.1(x86_64))"
+			],
+			"files": [
+				"/usr/bin/login_ng-cli",
+				"/usr/bin/login_ng-ctl",
+				"/usr/bin/login_ng-gui",
+				"/usr/bin/login_ng-session",
+				"/usr/bin/login_ng-sessionctl",
+				"/usr/bin/pam_login_ng-service",
+				"/usr/bin/sessionexec",
+				"/usr/bin/start-login_ng-session",
+				"/usr/lib/login_ng",
+				"/usr/lib/login_ng-session/default.service",
+				"/usr/lib/login_ng-session/steamdeck.service",
+				"/usr/lib/os-session-select",
+				"/usr/lib/security/pam_login_ng.so",
+				"/usr/lib/sessionexec/session-return.sh",
+				"/usr/lib/systemd/system/login_ng@.service",
+				"/usr/lib/systemd/system/pam_login_ng.service",
+				"/usr/lib/sysusers.d/login_ng.conf",
+				"/usr/share/applications/org.sessionexec.session-return.desktop",
+				"/usr/share/defaults/pam.d/login_ng",
+				"/usr/share/defaults/pam.d/login_ng-autologin",
+				"/usr/share/defaults/pam.d/login_ng-ctl",
+				"/usr/share/wayland-sessions/default.desktop",
+				"/usr/share/wayland-sessions/game-mode.desktop",
+				"/usr/share/wayland-sessions/login_ng-session.desktop"
+			],
+			"name": "login_ng",
+			"provides": [
+				"binary(login_ng-cli)",
+				"binary(login_ng-ctl)",
+				"binary(login_ng-gui)",
+				"binary(login_ng-session)",
+				"binary(login_ng-sessionctl)",
+				"binary(pam_login_ng-service)",
+				"binary(sessionexec)",
+				"binary(start-login_ng-session)",
+				"soname(security/pam_login_ng.so(x86_64))"
+			]
+		}
+	},
+	"source-name": "login_ng",
+	"source-release": "1",
+	"source-version": "0.6.5"
+}

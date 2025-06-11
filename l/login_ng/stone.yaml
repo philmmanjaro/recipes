@@ -1,0 +1,37 @@
+#
+# SPDX-FileCopyrightText: © 2020-2024 Serpent OS Developers
+#
+# SPDX-License-Identifier: MPL-2.0
+#
+name        : login_ng
+version     : 0.6.5
+release     : 1
+homepage    : https://github.com/neroreflex/login_ng
+upstreams   :
+    - https://github.com/NeroReflex/login_ng/releases/download/0.6.5/login_ng.src.tar.bz2 : a40ef7970ae17623764726fd76bbf31840d8e9ffd562de3d4b23ba370317b18a
+summary     : A greeter with addition functionalities
+description : |
+    A greeter written in rust that also supports autologin with systemd-homed
+license     : GPL-2.0
+builddeps   :
+    - binary(make)
+    - pkgconfig(pam)
+    - clang-devel
+rundeps     :
+    - binary(greetd)
+    - binary(seatd)
+    # Temporary workaround until we have some kind of virtual package that defines the base system
+    - linux-pam
+networking  : yes
+setup       : |
+    export RUSTUP_TOOLCHAIN=stable
+    %cargo_fetch --target "$(rustc -vV | sed -n 's/host: //p')"
+build       : |
+    export RUSTUP_TOOLCHAIN=stable
+    export CARGO_TARGET_DIR=target
+    %cargo_build
+install     : |
+    make ETC_DIR=%(vendordir) PREFIX="%(installroot)" install
+check       : |
+    export RUSTUP_TOOLCHAIN=stable
+    %cargo_test --all-features
