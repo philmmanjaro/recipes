@@ -1,0 +1,28 @@
+#
+# SPDX-FileCopyrightText: © 2025 AerynOS Developers
+#
+# SPDX-License-Identifier: MPL-2.0
+#
+name        : legendary
+version     : 0.20.41
+release     : 1
+homepage    : https://github.com/playtron-os/legendary
+upstreams   :
+    - https://github.com/playtron-os/legendary/archive/refs/tags/0.20.41.tar.gz : 6d29d8c6616966b26fcc2038f85c2db873d1d32bdd5063550017907359436a93
+summary     : A free and open-source replacement for the Epic Games Launcher
+description : |
+    A free and open-source replacement for the Epic Games Launcher
+license     : GPL-3.0-or-later
+networking  : yes
+builddeps   :
+    - python-build
+    - python-installer
+    - python-setuptools
+    - python-wheel
+rundeps     :
+    - python-filelock
+    - python-requests
+build       : |
+    %pyproject_build
+install     : |
+    %pyproject_install
